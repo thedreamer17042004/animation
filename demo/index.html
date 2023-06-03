@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <!-- hieu ung click aniji -->
+    <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
+    <!-- hieu ung cuon chuot -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- bounce -->
+    <script src="bounce.min.js"></script>
+    <!--hover  -->
+    <link rel="stylesheet" href="hover.css">
+    <!-- magic animation -->
+    <link rel="stylesheet" href="magic.css">
+    <!-- shake -->
+    <link rel="stylesheet" href="shake/csshake.css">
+    <link rel="stylesheet" href="shake/csshake-slow.css">
+</head>
+<body>
+    
+   
+    <!-- aniji click -->
+    <div class="container" style="margin: auto;background-color: red;text-align: center;">
+        <div id="main" data-anijs="if: dblclick, on: body, do: slideInDown animated" style="font-size: 50px;">
+            hello world
+         </div>
+    </div>
+
+    <!-- hieu ung cuon mouse aos  -->
+    <div  data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000" style="width: 200px;height: 300px;background-color: blue;"></div>
+
+    <!-- bounce -->
+    <div class="animation-target" style="width: 100px; height: 100px; background-color: yellow;"></div>
+
+
+    <!-- hover -->
+    <a href="#" class="hvr-grow" style="width: 100px; height: 100px; background-color: gray;">Grow</a>
+
+    <a href="#" class="hvr-icon-back">
+        <i class="fa fa-chevron-circle-left hvr-icon"></i> Icon Back
+    </a>
+
+
+    <!-- magic animation -->
+    <div class="id" style="background-color: green; width: 100px; height: 100px;">
+        hello world
+    </div>
+
+    <!-- shake -->
+    <div class="shake-rotate" style="width: 80%; height: 300px; background-color: red;">Hello world</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="anijs-min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        var bounce = new Bounce();
+        bounce.rotate({
+            from: 0,
+            to: 1000
+        });
+        bounce.applyTo(document.querySelectorAll(".animation-target"));
+    
+
+
+        // magic animation
+        $('.id').hover(function () {
+            $(this).toggleClass('magictime slideUp');
+        });
+        setTimeout(function(){
+            $('.yourdiv').toggleClass('magictime slideUp');
+        }, 5000);
+        setInterval(function(){
+            $('.yourdiv').toggleClass('magictime slideUp');
+        }, 3000 );
+    </script>
+</body>
+</html>
+
